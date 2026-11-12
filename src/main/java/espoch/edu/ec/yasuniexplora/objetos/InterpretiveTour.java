@@ -14,7 +14,16 @@ public class InterpretiveTour extends Tour{
     public float calculateTotalTime(){
         
         
-        return 0;
+        return (calculateBaseWalkingTime()* getDifficulty()+educationalTime);
     }
+
+    public float getEducationalTime() {
+        return educationalTime;
+    }
+
+    public void setEducationalTime(float educationalTime) {
+        this.educationalTime = educationalTime;
+    }
+    
     
 }

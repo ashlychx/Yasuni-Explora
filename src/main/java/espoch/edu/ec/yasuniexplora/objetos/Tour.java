@@ -1,8 +1,7 @@
 package espoch.edu.ec.yasuniexplora.objetos;
 
-public class Tour {
+public abstract class Tour {
 
-    //clase abstracta
     private String code;
     private String name;
     private float difficulty = 1.0f;
@@ -10,7 +9,10 @@ public class Tour {
     private Device device;
     private Guide guide;
 
-    public Tour(String code, String name, Trail[] trails, Device device, Guide guide) {
+    // Constructor de cinco parámetros
+    public Tour(String code, String name, Trail[] trails,
+            Device device, Guide guide) {
+
         this.code = code;
         this.name = name;
         this.trails = trails;
@@ -18,22 +20,30 @@ public class Tour {
         this.guide = guide;
     }
 
+    // Constructor de tres parámetros
+    public Tour(String code, String name, Trail[] trails) {
+
+        this(code, name, trails, null, null);
+    }
+
     public abstract float calculateTotalTime();
 
+    // Calcular distancia
     public float calculateDistance() {
+
         float total = 0;
 
         for (int i = 0; i < trails.length; i++) {
-            if (trails[i].getLength()) {
+
+            if (trails[i].isEnabled()) {
                 total += trails[i].getLength();
-
             }
-
         }
-        return total;
 
+        return total;
     }
 
+    // Calcular tiempo base de caminata
     public float calculateBaseWalkingTime() {
 
         float total = 0;
@@ -46,6 +56,14 @@ public class Tour {
         }
 
         return total;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public String getName() {
+        return name;
     }
 
     public float getDifficulty() {
@@ -79,7 +97,4 @@ public class Tour {
     public void setGuide(Guide guide) {
         this.guide = guide;
     }
-    
-    
-
 }

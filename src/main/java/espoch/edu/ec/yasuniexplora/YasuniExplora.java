@@ -20,29 +20,22 @@ public class YasuniExplora {
 
         // 2. Crear recorrido
         Tour tour = new RegularTour(
-                "T01", "Recorrido Amazonas", senderos);
+            "T01", "Recorrido Amazonas", senderos);
 
-        // 3. Crear dispositivos
-        Device d1 = new Device(
-                "D01", "Radio", true);
+        // 3. Crear dispositivo
+        Device d1 = new Device("D01", "Radio", true);
 
-        // 4. Crear guía
-        Guide g1 = new Guide(
-                "1234567890", "Carlos", true);
+        // 4. Crear guia
+        Guide g1 = new Guide("1234567890", "Carlos", true);
 
         // 5. Crear DAO
         TourImplDAO dao = new TourImplDAO(10);
-
-        // 6. Guardar recorrido
+        
         dao.save(tour);
-
-        // 7. Mostrar información
         dao.viewTours();
+        
+        System.out.println("ASIGNACION: "+ dao.assign(tour, d1, g1));
+        
 
-        // 8. Asignar recursos
-        System.out.println(
-                "Asignacion: " +
-                dao.assign(tour, d1, g1));
-
-    }
+    }  
 }

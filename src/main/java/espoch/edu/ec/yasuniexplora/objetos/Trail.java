@@ -1,15 +1,23 @@
-
 package espoch.edu.ec.yasuniexplora.objetos;
 
-
 public class Trail {
-    
+
     private String name;
-    private float length;    //km
-    private float walkingTime;   //minutos
+    private float length;
+    private float walkingTime;
     private boolean enabled;
 
-    public Trail(String name, float length, float walkingTime, boolean enabled) {
+    // Constructor de tres parámetros
+    public Trail(String name, float length, float walkingTime) {
+        this.name = name;
+        this.length = length;
+        this.walkingTime = walkingTime;
+        this.enabled = true;
+    }
+
+    // Constructor de cuatro parámetros
+    public Trail(String name, float length,
+            float walkingTime, boolean enabled) {
         this.name = name;
         this.length = length;
         this.walkingTime = walkingTime;
@@ -47,13 +55,4 @@ public class Trail {
     public void setEnabled(boolean enabled) {
         this.enabled = enabled;
     }
-    
-    
-    
-
-  
-
-    
-   
-    
 }
