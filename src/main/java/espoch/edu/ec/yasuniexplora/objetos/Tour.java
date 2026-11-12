@@ -1,42 +1,85 @@
-
 package espoch.edu.ec.yasuniexplora.objetos;
 
 public class Tour {
-    private String ide;
+
+    //clase abstracta
+    private String code;
     private String name;
-    private float dificculd =1.0f;
+    private float difficulty = 1.0f;
+    private Trail[] trails;
+    private Device device;
+    private Guide guide;
 
-    public Tour(String ide, String name) {
-        this.ide = ide;
+    public Tour(String code, String name, Trail[] trails, Device device, Guide guide) {
+        this.code = code;
         this.name = name;
+        this.trails = trails;
+        this.device = device;
+        this.guide = guide;
     }
 
-    public String getIde() {
-        return ide;
+    public abstract float calculateTotalTime();
+
+    public float calculateDistance() {
+        float total = 0;
+
+        for (int i = 0; i < trails.length; i++) {
+            if (trails[i].getLength()) {
+                total += trails[i].getLength();
+
+            }
+
+        }
+        return total;
+
     }
 
-    public void setIde(String ide) {
-        this.ide = ide;
+    public float calculateBaseWalkingTime() {
+
+        float total = 0;
+
+        for (int i = 0; i < trails.length; i++) {
+
+            if (trails[i].isEnabled()) {
+                total += trails[i].getWalkingTime();
+            }
+        }
+
+        return total;
     }
 
-    public String getName() {
-        return name;
+    public float getDifficulty() {
+        return difficulty;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setDifficulty(float difficulty) {
+        this.difficulty = difficulty;
     }
 
-    public float getDificculd() {
-        return dificculd;
+    public Trail[] getTrails() {
+        return trails;
     }
 
-    public void setDificculd(float dificculd) {
-        this.dificculd = dificculd;
+    public void setTrails(Trail[] trails) {
+        this.trails = trails;
+    }
+
+    public Device getDevice() {
+        return device;
+    }
+
+    public void setDevice(Device device) {
+        this.device = device;
+    }
+
+    public Guide getGuide() {
+        return guide;
+    }
+
+    public void setGuide(Guide guide) {
+        this.guide = guide;
     }
     
     
-    
-    
-    
+
 }

@@ -1,13 +1,20 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package espoch.edu.ec.yasuniexplora.objetos;
 
-/**
- *
- * @author Asus
- */
-public class InterpretiveTour {
+public class InterpretiveTour extends Tour{
+    
+    private float educationalTime;
+
+    public InterpretiveTour(float educationalTime, String code, String name, Trail[] trails, Device device, Guide guide) {
+        super(code, name, trails, device, guide);
+        this.educationalTime = educationalTime;
+    }
+    
+    @Override
+    public float calculateTotalTime(){
+        
+        
+        return 0;
+    }
     
 }

@@ -8,6 +8,6 @@ package espoch.edu.ec.yasuniexplora.implementacion;
  *
  * @author Asus
  */
-public class Tours {
+public class GuideImpl {
     
 }
